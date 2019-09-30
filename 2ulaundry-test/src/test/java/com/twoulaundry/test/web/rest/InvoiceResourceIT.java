@@ -157,7 +157,7 @@ public class InvoiceResourceIT {
 
         // Create the Invoice
         InvoiceDTO invoiceDTO = invoiceMapper.toDto(invoice);
-        restInvoiceMockMvc.perform(post("/api/invoices")
+        restInvoiceMockMvc.perform(post("/api/invoice")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(invoiceDTO)))
             .andExpect(status().isOk());
@@ -186,7 +186,7 @@ public class InvoiceResourceIT {
         InvoiceDTO invoiceDTO = invoiceMapper.toDto(invoice);
 
         // An entity with an existing ID cannot be created, so this API call must fail
-        restInvoiceMockMvc.perform(post("/api/invoices")
+        restInvoiceMockMvc.perform(post("/api/invoice")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(invoiceDTO)))
             .andExpect(status().isBadRequest());
@@ -207,7 +207,7 @@ public class InvoiceResourceIT {
         // Create the Invoice, which fails.
         InvoiceDTO invoiceDTO = invoiceMapper.toDto(invoice);
 
-        restInvoiceMockMvc.perform(post("/api/invoices")
+        restInvoiceMockMvc.perform(post("/api/invoice")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(invoiceDTO)))
             .andExpect(status().isBadRequest());
@@ -223,7 +223,7 @@ public class InvoiceResourceIT {
         invoiceRepository.saveAndFlush(invoice);
 
         // Get all the invoiceList
-        restInvoiceMockMvc.perform(get("/api/invoices?sort=id,desc"))
+        restInvoiceMockMvc.perform(get("/api/invoice?sort=id,desc"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invoice.getId().intValue())))
@@ -244,7 +244,7 @@ public class InvoiceResourceIT {
         invoiceRepository.saveAndFlush(invoice);
 
         // Get the invoice
-        restInvoiceMockMvc.perform(get("/api/invoices/{id}", invoice.getId()))
+        restInvoiceMockMvc.perform(get("/api/invoice/{id}", invoice.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(invoice.getId().intValue()))
@@ -262,7 +262,7 @@ public class InvoiceResourceIT {
     @Transactional
     public void getNonExistingInvoice() throws Exception {
         // Get the invoice
-        restInvoiceMockMvc.perform(get("/api/invoices/{id}", Long.MAX_VALUE))
+        restInvoiceMockMvc.perform(get("/api/invoice/{id}", Long.MAX_VALUE))
             .andExpect(status().isNotFound());
     }
 
@@ -289,7 +289,7 @@ public class InvoiceResourceIT {
             .status(UPDATED_STATUS);
         InvoiceDTO invoiceDTO = invoiceMapper.toDto(updatedInvoice);
 
-        restInvoiceMockMvc.perform(put("/api/invoices")
+        restInvoiceMockMvc.perform(put("/api/invoice")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(invoiceDTO)))
             .andExpect(status().isOk());
@@ -317,7 +317,7 @@ public class InvoiceResourceIT {
         InvoiceDTO invoiceDTO = invoiceMapper.toDto(invoice);
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
-        restInvoiceMockMvc.perform(put("/api/invoices")
+        restInvoiceMockMvc.perform(put("/api/invoice")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(invoiceDTO)))
             .andExpect(status().isBadRequest());
@@ -336,7 +336,7 @@ public class InvoiceResourceIT {
         int databaseSizeBeforeDelete = invoiceRepository.findAll().size();
 
         // Delete the invoice
-        restInvoiceMockMvc.perform(delete("/api/invoices/{id}", invoice.getId())
+        restInvoiceMockMvc.perform(delete("/api/invoice/{id}", invoice.getId())
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isNoContent());
 

@@ -97,7 +97,7 @@ export default (state: InvoiceState = initialState, action): InvoiceState => {
   }
 };
 
-const apiUrl = 'api/invoices';
+const apiUrl = 'api/invoice';
 
 // Actions
 

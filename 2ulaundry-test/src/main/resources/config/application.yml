@@ -57,7 +57,7 @@ management:
 
 spring:
   application:
-    name: twoulaundrytest
+    name: 2ulaundrytest
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by maven when building the JAR file
@@ -109,6 +109,7 @@ server:
     session:
       cookie:
         http-only: true
+    context-path: /${spring.application.name}
 
 # Properties to be exposed on the /info management endpoint
 info:
