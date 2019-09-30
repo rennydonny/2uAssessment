@@ -1,0 +1,9 @@
+{
+  "twoulaundrytestApp": {
+    "InvoiceStatus": {
+      "null": "",
+      "PENDING": "PENDING",
+      "APPROVED": "APPROVED"
+    }
+  }
+}
