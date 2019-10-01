@@ -88,13 +88,13 @@ export class InvoiceUpdate extends React.Component<IInvoiceUpdateProps, IInvoice
                   </AvGroup>
                 ) : null}
                 <AvGroup>
-                  <Label id="invoiceNumberLabel" for="invoice-invoiceNumber">
-                    <Translate contentKey="App.invoice.invoiceNumber">Invoice Number</Translate>
+                  <Label id="invoice_numberLabel" for="invoice-invoice_number">
+                    <Translate contentKey="App.invoice.invoice_number">Invoice Number</Translate>
                   </Label>
                   <AvField
-                    id="invoice-invoiceNumber"
+                    id="invoice-invoice_number"
                     type="text"
-                    name="invoiceNumber"
+                    name="invoice_number"
                     validate={{
                       required: { value: true, errorMessage: translate('entity.validation.required') },
                       pattern: { value: '^[0-9]+$', errorMessage: translate('entity.validation.pattern', { pattern: '^[0-9]+$' }) }
@@ -130,36 +130,36 @@ export class InvoiceUpdate extends React.Component<IInvoiceUpdateProps, IInvoice
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
-                  <Label id="invoiceDateLabel" for="invoice-invoiceDate">
-                    <Translate contentKey="App.invoice.invoiceDate">Invoice Date</Translate>
+                  <Label id="invoice_dateLabel" for="invoice-invoice_date">
+                    <Translate contentKey="App.invoice.invoice_date">Invoice Date</Translate>
                   </Label>
                   <AvField
-                    id="invoice-invoiceDate"
+                    id="invoice-invoice_date"
                     type="date"
                     className="form-control"
-                    name="invoiceDate"
+                    name="invoice_date"
                     validate={{
                       required: { value: true, errorMessage: translate('entity.validation.required') }
                     }}
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label id="dueDateLabel" for="invoice-dueDate">
-                    <Translate contentKey="App.invoice.dueDate">Due Date</Translate>
+                  <Label id="due_dateLabel" for="invoice-due_date">
+                    <Translate contentKey="App.invoice.due_date">Due Date</Translate>
                   </Label>
-                  <AvField id="invoice-dueDate" type="date" className="form-control" name="dueDate" />
+                  <AvField id="invoice-due_date" type="date" className="form-control" name="due_date" />
                 </AvGroup>
                 <AvGroup>
-                  <Label id="vendorNameLabel" for="invoice-vendorName">
-                    <Translate contentKey="App.invoice.vendorName">Vendor Name</Translate>
+                  <Label id="vendor_nameLabel" for="invoice-vendor_name">
+                    <Translate contentKey="App.invoice.vendor_name">Vendor Name</Translate>
                   </Label>
-                  <AvField id="invoice-vendorName" type="text" name="vendorName" />
+                  <AvField id="invoice-vendor_name" type="text" name="vendor_name" />
                 </AvGroup>
                 <AvGroup>
-                  <Label id="remittanceAddressLabel" for="invoice-remittanceAddress">
-                    <Translate contentKey="App.invoice.remittanceAddress">Remittance Address</Translate>
+                  <Label id="remittance_addressLabel" for="invoice-remittance_address">
+                    <Translate contentKey="App.invoice.remittance_address">Remittance Address</Translate>
                   </Label>
-                  <AvField id="invoice-remittanceAddress" type="text" name="remittanceAddress" />
+                  <AvField id="invoice-remittance_address" type="text" name="remittance_address" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="statusLabel" for="invoice-status">

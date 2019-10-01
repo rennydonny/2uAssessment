@@ -27,11 +27,11 @@ export class InvoiceDetail extends React.Component<IInvoiceDetailProps> {
           </h2>
           <dl className="jh-entity-details">
             <dt>
-              <span id="invoiceNumber">
-                <Translate contentKey="App.invoice.invoiceNumber">Invoice Number</Translate>
+              <span id="invoice_number">
+                <Translate contentKey="App.invoice.invoice_number">Invoice Number</Translate>
               </span>
             </dt>
-            <dd>{invoiceEntity.invoiceNumber}</dd>
+            <dd>{invoiceEntity.invoice_number}</dd>
             <dt>
               <span id="total">
                 <Translate contentKey="App.invoice.total">Total</Translate>
@@ -45,33 +45,33 @@ export class InvoiceDetail extends React.Component<IInvoiceDetailProps> {
             </dt>
             <dd>{invoiceEntity.currency}</dd>
             <dt>
-              <span id="invoiceDate">
-                <Translate contentKey="App.invoice.invoiceDate">Invoice Date</Translate>
+              <span id="invoice_date">
+                <Translate contentKey="App.invoice.invoice_date">Invoice Date</Translate>
               </span>
             </dt>
             <dd>
-              <TextFormat value={invoiceEntity.invoiceDate} type="date" format={APP_LOCAL_DATE_FORMAT} />
+              <TextFormat value={invoiceEntity.invoice_date} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <span id="dueDate">
-                <Translate contentKey="App.invoice.dueDate">Due Date</Translate>
+              <span id="due_date">
+                <Translate contentKey="App.invoice.due_date">Due Date</Translate>
               </span>
             </dt>
             <dd>
-              <TextFormat value={invoiceEntity.dueDate} type="date" format={APP_LOCAL_DATE_FORMAT} />
+              <TextFormat value={invoiceEntity.due_date} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <span id="vendorName">
-                <Translate contentKey="App.invoice.vendorName">Vendor Name</Translate>
+              <span id="vendor_name">
+                <Translate contentKey="App.invoice.vendor_name">Vendor Name</Translate>
               </span>
             </dt>
-            <dd>{invoiceEntity.vendorName}</dd>
+            <dd>{invoiceEntity.vendor_name}</dd>
             <dt>
-              <span id="remittanceAddress">
-                <Translate contentKey="App.invoice.remittanceAddress">Remittance Address</Translate>
+              <span id="remittance_address">
+                <Translate contentKey="App.invoice.remittance_address">Remittance Address</Translate>
               </span>
             </dt>
-            <dd>{invoiceEntity.remittanceAddress}</dd>
+            <dd>{invoiceEntity.remittance_address}</dd>
             <dt>
               <span id="status">
                 <Translate contentKey="App.invoice.status">Status</Translate>

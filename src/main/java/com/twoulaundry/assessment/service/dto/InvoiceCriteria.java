@@ -66,19 +66,19 @@ public class InvoiceCriteria implements Serializable, Criteria {
 
     private LongFilter id;
 
-    private StringFilter invoiceNumber;
+    private StringFilter invoice_number;
 
     private BigDecimalFilter total;
 
     private CurrencyFilter currency;
 
-    private LocalDateFilter invoiceDate;
+    private LocalDateFilter invoice_date;
 
-    private LocalDateFilter dueDate;
+    private LocalDateFilter due_date;
 
-    private StringFilter vendorName;
+    private StringFilter vendor_name;
 
-    private StringFilter remittanceAddress;
+    private StringFilter remittance_address;
 
     private InvoiceStatusFilter status;
 
@@ -87,13 +87,13 @@ public class InvoiceCriteria implements Serializable, Criteria {
 
     public InvoiceCriteria(InvoiceCriteria other){
         this.id = other.id == null ? null : other.id.copy();
-        this.invoiceNumber = other.invoiceNumber == null ? null : other.invoiceNumber.copy();
+        this.invoice_number = other.invoice_number == null ? null : other.invoice_number.copy();
         this.total = other.total == null ? null : other.total.copy();
         this.currency = other.currency == null ? null : other.currency.copy();
-        this.invoiceDate = other.invoiceDate == null ? null : other.invoiceDate.copy();
-        this.dueDate = other.dueDate == null ? null : other.dueDate.copy();
-        this.vendorName = other.vendorName == null ? null : other.vendorName.copy();
-        this.remittanceAddress = other.remittanceAddress == null ? null : other.remittanceAddress.copy();
+        this.invoice_date = other.invoice_date == null ? null : other.invoice_date.copy();
+        this.due_date = other.due_date == null ? null : other.due_date.copy();
+        this.vendor_name = other.vendor_name == null ? null : other.vendor_name.copy();
+        this.remittance_address = other.remittance_address == null ? null : other.remittance_address.copy();
         this.status = other.status == null ? null : other.status.copy();
     }
 
@@ -110,12 +110,12 @@ public class InvoiceCriteria implements Serializable, Criteria {
         this.id = id;
     }
 
-    public StringFilter getInvoiceNumber() {
-        return invoiceNumber;
+    public StringFilter getInvoice_number() {
+        return invoice_number;
     }
 
-    public void setInvoiceNumber(StringFilter invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
+    public void setInvoice_number(StringFilter invoice_number) {
+        this.invoice_number = invoice_number;
     }
 
     public BigDecimalFilter getTotal() {
@@ -134,36 +134,36 @@ public class InvoiceCriteria implements Serializable, Criteria {
         this.currency = currency;
     }
 
-    public LocalDateFilter getInvoiceDate() {
-        return invoiceDate;
+    public LocalDateFilter getInvoice_date() {
+        return invoice_date;
     }
 
-    public void setInvoiceDate(LocalDateFilter invoiceDate) {
-        this.invoiceDate = invoiceDate;
+    public void setInvoice_date(LocalDateFilter invoice_date) {
+        this.invoice_date = invoice_date;
     }
 
-    public LocalDateFilter getDueDate() {
-        return dueDate;
+    public LocalDateFilter getDue_date() {
+        return due_date;
     }
 
-    public void setDueDate(LocalDateFilter dueDate) {
-        this.dueDate = dueDate;
+    public void setDue_date(LocalDateFilter due_date) {
+        this.due_date = due_date;
     }
 
-    public StringFilter getVendorName() {
-        return vendorName;
+    public StringFilter getVendor_name() {
+        return vendor_name;
     }
 
-    public void setVendorName(StringFilter vendorName) {
-        this.vendorName = vendorName;
+    public void setVendor_name(StringFilter vendor_name) {
+        this.vendor_name = vendor_name;
     }
 
-    public StringFilter getRemittanceAddress() {
-        return remittanceAddress;
+    public StringFilter getRemittance_address() {
+        return remittance_address;
     }
 
-    public void setRemittanceAddress(StringFilter remittanceAddress) {
-        this.remittanceAddress = remittanceAddress;
+    public void setRemittance_address(StringFilter remittance_address) {
+        this.remittance_address = remittance_address;
     }
 
     public InvoiceStatusFilter getStatus() {
@@ -186,13 +186,13 @@ public class InvoiceCriteria implements Serializable, Criteria {
         final InvoiceCriteria that = (InvoiceCriteria) o;
         return
             Objects.equals(id, that.id) &&
-            Objects.equals(invoiceNumber, that.invoiceNumber) &&
+            Objects.equals(invoice_number, that.invoice_number) &&
             Objects.equals(total, that.total) &&
             Objects.equals(currency, that.currency) &&
-            Objects.equals(invoiceDate, that.invoiceDate) &&
-            Objects.equals(dueDate, that.dueDate) &&
-            Objects.equals(vendorName, that.vendorName) &&
-            Objects.equals(remittanceAddress, that.remittanceAddress) &&
+            Objects.equals(invoice_date, that.invoice_date) &&
+            Objects.equals(due_date, that.due_date) &&
+            Objects.equals(vendor_name, that.vendor_name) &&
+            Objects.equals(remittance_address, that.remittance_address) &&
             Objects.equals(status, that.status);
     }
 
@@ -200,13 +200,13 @@ public class InvoiceCriteria implements Serializable, Criteria {
     public int hashCode() {
         return Objects.hash(
         id,
-        invoiceNumber,
+        invoice_number,
         total,
         currency,
-        invoiceDate,
-        dueDate,
-        vendorName,
-        remittanceAddress,
+        invoice_date,
+        due_date,
+        vendor_name,
+        remittance_address,
         status
         );
     }
@@ -215,13 +215,13 @@ public class InvoiceCriteria implements Serializable, Criteria {
     public String toString() {
         return "InvoiceCriteria{" +
                 (id != null ? "id=" + id + ", " : "") +
-                (invoiceNumber != null ? "invoiceNumber=" + invoiceNumber + ", " : "") +
+                (invoice_number != null ? "invoice_number=" + invoice_number + ", " : "") +
                 (total != null ? "total=" + total + ", " : "") +
                 (currency != null ? "currency=" + currency + ", " : "") +
-                (invoiceDate != null ? "invoiceDate=" + invoiceDate + ", " : "") +
-                (dueDate != null ? "dueDate=" + dueDate + ", " : "") +
-                (vendorName != null ? "vendorName=" + vendorName + ", " : "") +
-                (remittanceAddress != null ? "remittanceAddress=" + remittanceAddress + ", " : "") +
+                (invoice_date != null ? "invoice_date=" + invoice_date + ", " : "") +
+                (due_date != null ? "due_date=" + due_date + ", " : "") +
+                (vendor_name != null ? "vendor_name=" + vendor_name + ", " : "") +
+                (remittance_address != null ? "remittance_address=" + remittance_address + ", " : "") +
                 (status != null ? "status=" + status + ", " : "") +
             "}";
     }

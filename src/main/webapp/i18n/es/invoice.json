@@ -16,13 +16,13 @@
       "detail": {
         "title": "Invoice"
       },
-      "invoiceNumber": "Invoice Number",
+      "invoice_number": "Invoice Number",
       "total": "Total",
       "currency": "Currency",
-      "invoiceDate": "Invoice Date",
-      "dueDate": "Due Date",
-      "vendorName": "Vendor Name",
-      "remittanceAddress": "Remittance Address",
+      "invoice_date": "Invoice Date",
+      "due_date": "Due Date",
+      "vendor_name": "Vendor Name",
+      "remittance_address": "Remittance Address",
       "status": "Status"
     }
   }

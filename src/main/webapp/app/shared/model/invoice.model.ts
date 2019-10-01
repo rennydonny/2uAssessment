@@ -4,13 +4,13 @@ import { InvoiceStatus } from 'app/shared/model/enumerations/invoice-status.mode
 
 export interface IInvoice {
   id?: number;
-  invoiceNumber?: string;
+  invoice_number?: string;
   total?: number;
   currency?: Currency;
-  invoiceDate?: Moment;
-  dueDate?: Moment;
-  vendorName?: string;
-  remittanceAddress?: string;
+  invoice_date?: Moment;
+  due_date?: Moment;
+  vendor_name?: string;
+  remittance_address?: string;
   status?: InvoiceStatus;
 }
 

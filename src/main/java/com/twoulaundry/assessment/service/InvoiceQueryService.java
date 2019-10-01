@@ -91,8 +91,8 @@ public class InvoiceQueryService extends QueryService<Invoice> {
             if (criteria.getId() != null) {
                 specification = specification.and(buildSpecification(criteria.getId(), Invoice_.id));
             }
-            if (criteria.getInvoiceNumber() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getInvoiceNumber(), Invoice_.invoiceNumber));
+            if (criteria.getInvoice_number() != null) {
+                specification = specification.and(buildStringSpecification(criteria.getInvoice_number(), Invoice_.invoice_number));
             }
             if (criteria.getTotal() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getTotal(), Invoice_.total));
@@ -100,17 +100,17 @@ public class InvoiceQueryService extends QueryService<Invoice> {
             if (criteria.getCurrency() != null) {
                 specification = specification.and(buildSpecification(criteria.getCurrency(), Invoice_.currency));
             }
-            if (criteria.getInvoiceDate() != null) {
-                specification = specification.and(buildRangeSpecification(criteria.getInvoiceDate(), Invoice_.invoiceDate));
+            if (criteria.getInvoice_date() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getInvoice_date(), Invoice_.invoice_date));
             }
-            if (criteria.getDueDate() != null) {
-                specification = specification.and(buildRangeSpecification(criteria.getDueDate(), Invoice_.dueDate));
+            if (criteria.getDue_date() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getDue_date(), Invoice_.due_date));
             }
-            if (criteria.getVendorName() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getVendorName(), Invoice_.vendorName));
+            if (criteria.getVendor_name() != null) {
+                specification = specification.and(buildStringSpecification(criteria.getVendor_name(), Invoice_.vendor_name));
             }
-            if (criteria.getRemittanceAddress() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getRemittanceAddress(), Invoice_.remittanceAddress));
+            if (criteria.getRemittance_address() != null) {
+                specification = specification.and(buildStringSpecification(criteria.getRemittance_address(), Invoice_.remittance_address));
             }
             if (criteria.getStatus() != null) {
                 specification = specification.and(buildSpecification(criteria.getStatus(), Invoice_.status));

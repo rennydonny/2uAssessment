@@ -4,7 +4,7 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "invoiceNumber",
+            "fieldName": "invoice_number",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required",
@@ -29,22 +29,22 @@
             ]
         },
         {
-            "fieldName": "invoiceDate",
+            "fieldName": "invoice_date",
             "fieldType": "LocalDate",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "dueDate",
+            "fieldName": "due_date",
             "fieldType": "LocalDate"
         },
         {
-            "fieldName": "vendorName",
+            "fieldName": "vendor_name",
             "fieldType": "String"
         },
         {
-            "fieldName": "remittanceAddress",
+            "fieldName": "remittance_address",
             "fieldType": "String"
         },
         {
@@ -53,7 +53,7 @@
             "fieldValues": "PENDING,APPROVED"
         }
     ],
-    "changelogDate": "20191001050331",
+    "changelogDate": "20191001074655",
     "dto": "mapstruct",
     "searchEngine": false,
     "service": "serviceImpl",

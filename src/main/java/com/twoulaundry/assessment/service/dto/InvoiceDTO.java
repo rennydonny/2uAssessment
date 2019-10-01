@@ -16,7 +16,7 @@ public class InvoiceDTO implements Serializable {
 
     @NotNull
     @Pattern(regexp = "^[0-9]+$")
-    private String invoiceNumber;
+    private String invoice_number;
 
     @NotNull
     private BigDecimal total;
@@ -25,13 +25,13 @@ public class InvoiceDTO implements Serializable {
     private Currency currency;
 
     @NotNull
-    private LocalDate invoiceDate;
+    private LocalDate invoice_date;
 
-    private LocalDate dueDate;
+    private LocalDate due_date;
 
-    private String vendorName;
+    private String vendor_name;
 
-    private String remittanceAddress;
+    private String remittance_address;
 
     private InvoiceStatus status;
 
@@ -44,12 +44,12 @@ public class InvoiceDTO implements Serializable {
         this.id = id;
     }
 
-    public String getInvoiceNumber() {
-        return invoiceNumber;
+    public String getInvoice_number() {
+        return invoice_number;
     }
 
-    public void setInvoiceNumber(String invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
+    public void setInvoice_number(String invoice_number) {
+        this.invoice_number = invoice_number;
     }
 
     public BigDecimal getTotal() {
@@ -68,36 +68,36 @@ public class InvoiceDTO implements Serializable {
         this.currency = currency;
     }
 
-    public LocalDate getInvoiceDate() {
-        return invoiceDate;
+    public LocalDate getInvoice_date() {
+        return invoice_date;
     }
 
-    public void setInvoiceDate(LocalDate invoiceDate) {
-        this.invoiceDate = invoiceDate;
+    public void setInvoice_date(LocalDate invoice_date) {
+        this.invoice_date = invoice_date;
     }
 
-    public LocalDate getDueDate() {
-        return dueDate;
+    public LocalDate getDue_date() {
+        return due_date;
     }
 
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
+    public void setDue_date(LocalDate due_date) {
+        this.due_date = due_date;
     }
 
-    public String getVendorName() {
-        return vendorName;
+    public String getVendor_name() {
+        return vendor_name;
     }
 
-    public void setVendorName(String vendorName) {
-        this.vendorName = vendorName;
+    public void setVendor_name(String vendor_name) {
+        this.vendor_name = vendor_name;
     }
 
-    public String getRemittanceAddress() {
-        return remittanceAddress;
+    public String getRemittance_address() {
+        return remittance_address;
     }
 
-    public void setRemittanceAddress(String remittanceAddress) {
-        this.remittanceAddress = remittanceAddress;
+    public void setRemittance_address(String remittance_address) {
+        this.remittance_address = remittance_address;
     }
 
     public InvoiceStatus getStatus() {
@@ -133,13 +133,13 @@ public class InvoiceDTO implements Serializable {
     public String toString() {
         return "InvoiceDTO{" +
             "id=" + getId() +
-            ", invoiceNumber='" + getInvoiceNumber() + "'" +
+            ", invoice_number='" + getInvoice_number() + "'" +
             ", total=" + getTotal() +
             ", currency='" + getCurrency() + "'" +
-            ", invoiceDate='" + getInvoiceDate() + "'" +
-            ", dueDate='" + getDueDate() + "'" +
-            ", vendorName='" + getVendorName() + "'" +
-            ", remittanceAddress='" + getRemittanceAddress() + "'" +
+            ", invoice_date='" + getInvoice_date() + "'" +
+            ", due_date='" + getDue_date() + "'" +
+            ", vendor_name='" + getVendor_name() + "'" +
+            ", remittance_address='" + getRemittance_address() + "'" +
             ", status='" + getStatus() + "'" +
             "}";
     }

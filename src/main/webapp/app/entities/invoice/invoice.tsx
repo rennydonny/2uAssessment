@@ -66,8 +66,8 @@ export class Invoice extends React.Component<IInvoiceProps, IInvoiceState> {
                   <th className="hand" onClick={this.sort('id')}>
                     <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={this.sort('invoiceNumber')}>
-                    <Translate contentKey="App.invoice.invoiceNumber">Invoice Number</Translate> <FontAwesomeIcon icon="sort" />
+                  <th className="hand" onClick={this.sort('invoice_number')}>
+                    <Translate contentKey="App.invoice.invoice_number">Invoice Number</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={this.sort('total')}>
                     <Translate contentKey="App.invoice.total">Total</Translate> <FontAwesomeIcon icon="sort" />
@@ -75,17 +75,17 @@ export class Invoice extends React.Component<IInvoiceProps, IInvoiceState> {
                   <th className="hand" onClick={this.sort('currency')}>
                     <Translate contentKey="App.invoice.currency">Currency</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={this.sort('invoiceDate')}>
-                    <Translate contentKey="App.invoice.invoiceDate">Invoice Date</Translate> <FontAwesomeIcon icon="sort" />
+                  <th className="hand" onClick={this.sort('invoice_date')}>
+                    <Translate contentKey="App.invoice.invoice_date">Invoice Date</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={this.sort('dueDate')}>
-                    <Translate contentKey="App.invoice.dueDate">Due Date</Translate> <FontAwesomeIcon icon="sort" />
+                  <th className="hand" onClick={this.sort('due_date')}>
+                    <Translate contentKey="App.invoice.due_date">Due Date</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={this.sort('vendorName')}>
-                    <Translate contentKey="App.invoice.vendorName">Vendor Name</Translate> <FontAwesomeIcon icon="sort" />
+                  <th className="hand" onClick={this.sort('vendor_name')}>
+                    <Translate contentKey="App.invoice.vendor_name">Vendor Name</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={this.sort('remittanceAddress')}>
-                    <Translate contentKey="App.invoice.remittanceAddress">Remittance Address</Translate> <FontAwesomeIcon icon="sort" />
+                  <th className="hand" onClick={this.sort('remittance_address')}>
+                    <Translate contentKey="App.invoice.remittance_address">Remittance Address</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={this.sort('status')}>
                     <Translate contentKey="App.invoice.status">Status</Translate> <FontAwesomeIcon icon="sort" />
@@ -101,19 +101,19 @@ export class Invoice extends React.Component<IInvoiceProps, IInvoiceState> {
                         {invoice.id}
                       </Button>
                     </td>
-                    <td>{invoice.invoiceNumber}</td>
+                    <td>{invoice.invoice_number}</td>
                     <td>{invoice.total}</td>
                     <td>
                       <Translate contentKey={`App.Currency.${invoice.currency}`} />
                     </td>
                     <td>
-                      <TextFormat type="date" value={invoice.invoiceDate} format={APP_LOCAL_DATE_FORMAT} />
+                      <TextFormat type="date" value={invoice.invoice_date} format={APP_LOCAL_DATE_FORMAT} />
                     </td>
                     <td>
-                      <TextFormat type="date" value={invoice.dueDate} format={APP_LOCAL_DATE_FORMAT} />
+                      <TextFormat type="date" value={invoice.due_date} format={APP_LOCAL_DATE_FORMAT} />
                     </td>
-                    <td>{invoice.vendorName}</td>
-                    <td>{invoice.remittanceAddress}</td>
+                    <td>{invoice.vendor_name}</td>
+                    <td>{invoice.remittance_address}</td>
                     <td>
                       <Translate contentKey={`App.InvoiceStatus.${invoice.status}`} />
                     </td>

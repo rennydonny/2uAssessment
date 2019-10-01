@@ -31,7 +31,7 @@ public class Invoice implements Serializable {
     @NotNull
     @Pattern(regexp = "^[0-9]+$")
     @Column(name = "invoice_number", nullable = false, unique = true)
-    private String invoiceNumber;
+    private String invoice_number;
 
     @NotNull
     @Column(name = "total", precision = 21, scale = 2, nullable = false)
@@ -44,16 +44,16 @@ public class Invoice implements Serializable {
 
     @NotNull
     @Column(name = "invoice_date", nullable = false)
-    private LocalDate invoiceDate;
+    private LocalDate invoice_date;
 
     @Column(name = "due_date")
-    private LocalDate dueDate;
+    private LocalDate due_date;
 
     @Column(name = "vendor_name")
-    private String vendorName;
+    private String vendor_name;
 
     @Column(name = "remittance_address")
-    private String remittanceAddress;
+    private String remittance_address;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
@@ -68,17 +68,17 @@ public class Invoice implements Serializable {
         this.id = id;
     }
 
-    public String getInvoiceNumber() {
-        return invoiceNumber;
+    public String getInvoice_number() {
+        return invoice_number;
     }
 
-    public Invoice invoiceNumber(String invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
+    public Invoice invoice_number(String invoice_number) {
+        this.invoice_number = invoice_number;
         return this;
     }
 
-    public void setInvoiceNumber(String invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
+    public void setInvoice_number(String invoice_number) {
+        this.invoice_number = invoice_number;
     }
 
     public BigDecimal getTotal() {
@@ -107,56 +107,56 @@ public class Invoice implements Serializable {
         this.currency = currency;
     }
 
-    public LocalDate getInvoiceDate() {
-        return invoiceDate;
+    public LocalDate getInvoice_date() {
+        return invoice_date;
     }
 
-    public Invoice invoiceDate(LocalDate invoiceDate) {
-        this.invoiceDate = invoiceDate;
+    public Invoice invoice_date(LocalDate invoice_date) {
+        this.invoice_date = invoice_date;
         return this;
     }
 
-    public void setInvoiceDate(LocalDate invoiceDate) {
-        this.invoiceDate = invoiceDate;
+    public void setInvoice_date(LocalDate invoice_date) {
+        this.invoice_date = invoice_date;
     }
 
-    public LocalDate getDueDate() {
-        return dueDate;
+    public LocalDate getDue_date() {
+        return due_date;
     }
 
-    public Invoice dueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
+    public Invoice due_date(LocalDate due_date) {
+        this.due_date = due_date;
         return this;
     }
 
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
+    public void setDue_date(LocalDate due_date) {
+        this.due_date = due_date;
     }
 
-    public String getVendorName() {
-        return vendorName;
+    public String getVendor_name() {
+        return vendor_name;
     }
 
-    public Invoice vendorName(String vendorName) {
-        this.vendorName = vendorName;
+    public Invoice vendor_name(String vendor_name) {
+        this.vendor_name = vendor_name;
         return this;
     }
 
-    public void setVendorName(String vendorName) {
-        this.vendorName = vendorName;
+    public void setVendor_name(String vendor_name) {
+        this.vendor_name = vendor_name;
     }
 
-    public String getRemittanceAddress() {
-        return remittanceAddress;
+    public String getRemittance_address() {
+        return remittance_address;
     }
 
-    public Invoice remittanceAddress(String remittanceAddress) {
-        this.remittanceAddress = remittanceAddress;
+    public Invoice remittance_address(String remittance_address) {
+        this.remittance_address = remittance_address;
         return this;
     }
 
-    public void setRemittanceAddress(String remittanceAddress) {
-        this.remittanceAddress = remittanceAddress;
+    public void setRemittance_address(String remittance_address) {
+        this.remittance_address = remittance_address;
     }
 
     public InvoiceStatus getStatus() {
@@ -193,13 +193,13 @@ public class Invoice implements Serializable {
     public String toString() {
         return "Invoice{" +
             "id=" + getId() +
-            ", invoiceNumber='" + getInvoiceNumber() + "'" +
+            ", invoice_number='" + getInvoice_number() + "'" +
             ", total=" + getTotal() +
             ", currency='" + getCurrency() + "'" +
-            ", invoiceDate='" + getInvoiceDate() + "'" +
-            ", dueDate='" + getDueDate() + "'" +
-            ", vendorName='" + getVendorName() + "'" +
-            ", remittanceAddress='" + getRemittanceAddress() + "'" +
+            ", invoice_date='" + getInvoice_date() + "'" +
+            ", due_date='" + getDue_date() + "'" +
+            ", vendor_name='" + getVendor_name() + "'" +
+            ", remittance_address='" + getRemittance_address() + "'" +
             ", status='" + getStatus() + "'" +
             "}";
     }

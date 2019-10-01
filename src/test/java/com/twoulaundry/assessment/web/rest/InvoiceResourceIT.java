@@ -43,8 +43,8 @@ import com.twoulaundry.assessment.domain.enumeration.InvoiceStatus;
 @SpringBootTest(classes = Application.class)
 public class InvoiceResourceIT {
 
-    private static final String DEFAULT_INVOICE_NUMBER = "62";
-    private static final String UPDATED_INVOICE_NUMBER = "1";
+    private static final String DEFAULT_INVOICE_NUMBER = "68";
+    private static final String UPDATED_INVOICE_NUMBER = "07";
 
     private static final BigDecimal DEFAULT_TOTAL = new BigDecimal(1);
     private static final BigDecimal UPDATED_TOTAL = new BigDecimal(2);
@@ -121,13 +121,13 @@ public class InvoiceResourceIT {
      */
     public static Invoice createEntity(EntityManager em) {
         Invoice invoice = new Invoice()
-            .invoiceNumber(DEFAULT_INVOICE_NUMBER)
+            .invoice_number(DEFAULT_INVOICE_NUMBER)
             .total(DEFAULT_TOTAL)
             .currency(DEFAULT_CURRENCY)
-            .invoiceDate(DEFAULT_INVOICE_DATE)
-            .dueDate(DEFAULT_DUE_DATE)
-            .vendorName(DEFAULT_VENDOR_NAME)
-            .remittanceAddress(DEFAULT_REMITTANCE_ADDRESS)
+            .invoice_date(DEFAULT_INVOICE_DATE)
+            .due_date(DEFAULT_DUE_DATE)
+            .vendor_name(DEFAULT_VENDOR_NAME)
+            .remittance_address(DEFAULT_REMITTANCE_ADDRESS)
             .status(DEFAULT_STATUS);
         return invoice;
     }
@@ -139,13 +139,13 @@ public class InvoiceResourceIT {
      */
     public static Invoice createUpdatedEntity(EntityManager em) {
         Invoice invoice = new Invoice()
-            .invoiceNumber(UPDATED_INVOICE_NUMBER)
+            .invoice_number(UPDATED_INVOICE_NUMBER)
             .total(UPDATED_TOTAL)
             .currency(UPDATED_CURRENCY)
-            .invoiceDate(UPDATED_INVOICE_DATE)
-            .dueDate(UPDATED_DUE_DATE)
-            .vendorName(UPDATED_VENDOR_NAME)
-            .remittanceAddress(UPDATED_REMITTANCE_ADDRESS)
+            .invoice_date(UPDATED_INVOICE_DATE)
+            .due_date(UPDATED_DUE_DATE)
+            .vendor_name(UPDATED_VENDOR_NAME)
+            .remittance_address(UPDATED_REMITTANCE_ADDRESS)
             .status(UPDATED_STATUS);
         return invoice;
     }
@@ -171,13 +171,13 @@ public class InvoiceResourceIT {
         List<Invoice> invoiceList = invoiceRepository.findAll();
         assertThat(invoiceList).hasSize(databaseSizeBeforeCreate + 1);
         Invoice testInvoice = invoiceList.get(invoiceList.size() - 1);
-        assertThat(testInvoice.getInvoiceNumber()).isEqualTo(DEFAULT_INVOICE_NUMBER);
+        assertThat(testInvoice.getInvoice_number()).isEqualTo(DEFAULT_INVOICE_NUMBER);
         assertThat(testInvoice.getTotal()).isEqualTo(DEFAULT_TOTAL);
         assertThat(testInvoice.getCurrency()).isEqualTo(DEFAULT_CURRENCY);
-        assertThat(testInvoice.getInvoiceDate()).isEqualTo(DEFAULT_INVOICE_DATE);
-        assertThat(testInvoice.getDueDate()).isEqualTo(DEFAULT_DUE_DATE);
-        assertThat(testInvoice.getVendorName()).isEqualTo(DEFAULT_VENDOR_NAME);
-        assertThat(testInvoice.getRemittanceAddress()).isEqualTo(DEFAULT_REMITTANCE_ADDRESS);
+        assertThat(testInvoice.getInvoice_date()).isEqualTo(DEFAULT_INVOICE_DATE);
+        assertThat(testInvoice.getDue_date()).isEqualTo(DEFAULT_DUE_DATE);
+        assertThat(testInvoice.getVendor_name()).isEqualTo(DEFAULT_VENDOR_NAME);
+        assertThat(testInvoice.getRemittance_address()).isEqualTo(DEFAULT_REMITTANCE_ADDRESS);
         assertThat(testInvoice.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
 
@@ -204,10 +204,10 @@ public class InvoiceResourceIT {
 
     @Test
     @Transactional
-    public void checkInvoiceNumberIsRequired() throws Exception {
+    public void checkInvoice_numberIsRequired() throws Exception {
         int databaseSizeBeforeTest = invoiceRepository.findAll().size();
         // set the field null
-        invoice.setInvoiceNumber(null);
+        invoice.setInvoice_number(null);
 
         // Create the Invoice, which fails.
         InvoiceDTO invoiceDTO = invoiceMapper.toDto(invoice);
@@ -261,10 +261,10 @@ public class InvoiceResourceIT {
 
     @Test
     @Transactional
-    public void checkInvoiceDateIsRequired() throws Exception {
+    public void checkInvoice_dateIsRequired() throws Exception {
         int databaseSizeBeforeTest = invoiceRepository.findAll().size();
         // set the field null
-        invoice.setInvoiceDate(null);
+        invoice.setInvoice_date(null);
 
         // Create the Invoice, which fails.
         InvoiceDTO invoiceDTO = invoiceMapper.toDto(invoice);
@@ -289,13 +289,13 @@ public class InvoiceResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invoice.getId().intValue())))
-            .andExpect(jsonPath("$.[*].invoiceNumber").value(hasItem(DEFAULT_INVOICE_NUMBER.toString())))
+            .andExpect(jsonPath("$.[*].invoice_number").value(hasItem(DEFAULT_INVOICE_NUMBER.toString())))
             .andExpect(jsonPath("$.[*].total").value(hasItem(DEFAULT_TOTAL.intValue())))
             .andExpect(jsonPath("$.[*].currency").value(hasItem(DEFAULT_CURRENCY.toString())))
-            .andExpect(jsonPath("$.[*].invoiceDate").value(hasItem(DEFAULT_INVOICE_DATE.toString())))
-            .andExpect(jsonPath("$.[*].dueDate").value(hasItem(DEFAULT_DUE_DATE.toString())))
-            .andExpect(jsonPath("$.[*].vendorName").value(hasItem(DEFAULT_VENDOR_NAME.toString())))
-            .andExpect(jsonPath("$.[*].remittanceAddress").value(hasItem(DEFAULT_REMITTANCE_ADDRESS.toString())))
+            .andExpect(jsonPath("$.[*].invoice_date").value(hasItem(DEFAULT_INVOICE_DATE.toString())))
+            .andExpect(jsonPath("$.[*].due_date").value(hasItem(DEFAULT_DUE_DATE.toString())))
+            .andExpect(jsonPath("$.[*].vendor_name").value(hasItem(DEFAULT_VENDOR_NAME.toString())))
+            .andExpect(jsonPath("$.[*].remittance_address").value(hasItem(DEFAULT_REMITTANCE_ADDRESS.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
     
@@ -310,53 +310,53 @@ public class InvoiceResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(invoice.getId().intValue()))
-            .andExpect(jsonPath("$.invoiceNumber").value(DEFAULT_INVOICE_NUMBER.toString()))
+            .andExpect(jsonPath("$.invoice_number").value(DEFAULT_INVOICE_NUMBER.toString()))
             .andExpect(jsonPath("$.total").value(DEFAULT_TOTAL.intValue()))
             .andExpect(jsonPath("$.currency").value(DEFAULT_CURRENCY.toString()))
-            .andExpect(jsonPath("$.invoiceDate").value(DEFAULT_INVOICE_DATE.toString()))
-            .andExpect(jsonPath("$.dueDate").value(DEFAULT_DUE_DATE.toString()))
-            .andExpect(jsonPath("$.vendorName").value(DEFAULT_VENDOR_NAME.toString()))
-            .andExpect(jsonPath("$.remittanceAddress").value(DEFAULT_REMITTANCE_ADDRESS.toString()))
+            .andExpect(jsonPath("$.invoice_date").value(DEFAULT_INVOICE_DATE.toString()))
+            .andExpect(jsonPath("$.due_date").value(DEFAULT_DUE_DATE.toString()))
+            .andExpect(jsonPath("$.vendor_name").value(DEFAULT_VENDOR_NAME.toString()))
+            .andExpect(jsonPath("$.remittance_address").value(DEFAULT_REMITTANCE_ADDRESS.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByInvoiceNumberIsEqualToSomething() throws Exception {
+    public void getAllInvoicesByInvoice_numberIsEqualToSomething() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where invoiceNumber equals to DEFAULT_INVOICE_NUMBER
-        defaultInvoiceShouldBeFound("invoiceNumber.equals=" + DEFAULT_INVOICE_NUMBER);
+        // Get all the invoiceList where invoice_number equals to DEFAULT_INVOICE_NUMBER
+        defaultInvoiceShouldBeFound("invoice_number.equals=" + DEFAULT_INVOICE_NUMBER);
 
-        // Get all the invoiceList where invoiceNumber equals to UPDATED_INVOICE_NUMBER
-        defaultInvoiceShouldNotBeFound("invoiceNumber.equals=" + UPDATED_INVOICE_NUMBER);
+        // Get all the invoiceList where invoice_number equals to UPDATED_INVOICE_NUMBER
+        defaultInvoiceShouldNotBeFound("invoice_number.equals=" + UPDATED_INVOICE_NUMBER);
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByInvoiceNumberIsInShouldWork() throws Exception {
+    public void getAllInvoicesByInvoice_numberIsInShouldWork() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where invoiceNumber in DEFAULT_INVOICE_NUMBER or UPDATED_INVOICE_NUMBER
-        defaultInvoiceShouldBeFound("invoiceNumber.in=" + DEFAULT_INVOICE_NUMBER + "," + UPDATED_INVOICE_NUMBER);
+        // Get all the invoiceList where invoice_number in DEFAULT_INVOICE_NUMBER or UPDATED_INVOICE_NUMBER
+        defaultInvoiceShouldBeFound("invoice_number.in=" + DEFAULT_INVOICE_NUMBER + "," + UPDATED_INVOICE_NUMBER);
 
-        // Get all the invoiceList where invoiceNumber equals to UPDATED_INVOICE_NUMBER
-        defaultInvoiceShouldNotBeFound("invoiceNumber.in=" + UPDATED_INVOICE_NUMBER);
+        // Get all the invoiceList where invoice_number equals to UPDATED_INVOICE_NUMBER
+        defaultInvoiceShouldNotBeFound("invoice_number.in=" + UPDATED_INVOICE_NUMBER);
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByInvoiceNumberIsNullOrNotNull() throws Exception {
+    public void getAllInvoicesByInvoice_numberIsNullOrNotNull() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where invoiceNumber is not null
-        defaultInvoiceShouldBeFound("invoiceNumber.specified=true");
+        // Get all the invoiceList where invoice_number is not null
+        defaultInvoiceShouldBeFound("invoice_number.specified=true");
 
-        // Get all the invoiceList where invoiceNumber is null
-        defaultInvoiceShouldNotBeFound("invoiceNumber.specified=false");
+        // Get all the invoiceList where invoice_number is null
+        defaultInvoiceShouldNotBeFound("invoice_number.specified=false");
     }
 
     @Test
@@ -492,264 +492,264 @@ public class InvoiceResourceIT {
 
     @Test
     @Transactional
-    public void getAllInvoicesByInvoiceDateIsEqualToSomething() throws Exception {
+    public void getAllInvoicesByInvoice_dateIsEqualToSomething() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where invoiceDate equals to DEFAULT_INVOICE_DATE
-        defaultInvoiceShouldBeFound("invoiceDate.equals=" + DEFAULT_INVOICE_DATE);
+        // Get all the invoiceList where invoice_date equals to DEFAULT_INVOICE_DATE
+        defaultInvoiceShouldBeFound("invoice_date.equals=" + DEFAULT_INVOICE_DATE);
 
-        // Get all the invoiceList where invoiceDate equals to UPDATED_INVOICE_DATE
-        defaultInvoiceShouldNotBeFound("invoiceDate.equals=" + UPDATED_INVOICE_DATE);
+        // Get all the invoiceList where invoice_date equals to UPDATED_INVOICE_DATE
+        defaultInvoiceShouldNotBeFound("invoice_date.equals=" + UPDATED_INVOICE_DATE);
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByInvoiceDateIsInShouldWork() throws Exception {
+    public void getAllInvoicesByInvoice_dateIsInShouldWork() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where invoiceDate in DEFAULT_INVOICE_DATE or UPDATED_INVOICE_DATE
-        defaultInvoiceShouldBeFound("invoiceDate.in=" + DEFAULT_INVOICE_DATE + "," + UPDATED_INVOICE_DATE);
+        // Get all the invoiceList where invoice_date in DEFAULT_INVOICE_DATE or UPDATED_INVOICE_DATE
+        defaultInvoiceShouldBeFound("invoice_date.in=" + DEFAULT_INVOICE_DATE + "," + UPDATED_INVOICE_DATE);
 
-        // Get all the invoiceList where invoiceDate equals to UPDATED_INVOICE_DATE
-        defaultInvoiceShouldNotBeFound("invoiceDate.in=" + UPDATED_INVOICE_DATE);
+        // Get all the invoiceList where invoice_date equals to UPDATED_INVOICE_DATE
+        defaultInvoiceShouldNotBeFound("invoice_date.in=" + UPDATED_INVOICE_DATE);
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByInvoiceDateIsNullOrNotNull() throws Exception {
+    public void getAllInvoicesByInvoice_dateIsNullOrNotNull() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where invoiceDate is not null
-        defaultInvoiceShouldBeFound("invoiceDate.specified=true");
+        // Get all the invoiceList where invoice_date is not null
+        defaultInvoiceShouldBeFound("invoice_date.specified=true");
 
-        // Get all the invoiceList where invoiceDate is null
-        defaultInvoiceShouldNotBeFound("invoiceDate.specified=false");
+        // Get all the invoiceList where invoice_date is null
+        defaultInvoiceShouldNotBeFound("invoice_date.specified=false");
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByInvoiceDateIsGreaterThanOrEqualToSomething() throws Exception {
+    public void getAllInvoicesByInvoice_dateIsGreaterThanOrEqualToSomething() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where invoiceDate is greater than or equal to DEFAULT_INVOICE_DATE
-        defaultInvoiceShouldBeFound("invoiceDate.greaterThanOrEqual=" + DEFAULT_INVOICE_DATE);
+        // Get all the invoiceList where invoice_date is greater than or equal to DEFAULT_INVOICE_DATE
+        defaultInvoiceShouldBeFound("invoice_date.greaterThanOrEqual=" + DEFAULT_INVOICE_DATE);
 
-        // Get all the invoiceList where invoiceDate is greater than or equal to UPDATED_INVOICE_DATE
-        defaultInvoiceShouldNotBeFound("invoiceDate.greaterThanOrEqual=" + UPDATED_INVOICE_DATE);
+        // Get all the invoiceList where invoice_date is greater than or equal to UPDATED_INVOICE_DATE
+        defaultInvoiceShouldNotBeFound("invoice_date.greaterThanOrEqual=" + UPDATED_INVOICE_DATE);
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByInvoiceDateIsLessThanOrEqualToSomething() throws Exception {
+    public void getAllInvoicesByInvoice_dateIsLessThanOrEqualToSomething() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where invoiceDate is less than or equal to DEFAULT_INVOICE_DATE
-        defaultInvoiceShouldBeFound("invoiceDate.lessThanOrEqual=" + DEFAULT_INVOICE_DATE);
+        // Get all the invoiceList where invoice_date is less than or equal to DEFAULT_INVOICE_DATE
+        defaultInvoiceShouldBeFound("invoice_date.lessThanOrEqual=" + DEFAULT_INVOICE_DATE);
 
-        // Get all the invoiceList where invoiceDate is less than or equal to SMALLER_INVOICE_DATE
-        defaultInvoiceShouldNotBeFound("invoiceDate.lessThanOrEqual=" + SMALLER_INVOICE_DATE);
+        // Get all the invoiceList where invoice_date is less than or equal to SMALLER_INVOICE_DATE
+        defaultInvoiceShouldNotBeFound("invoice_date.lessThanOrEqual=" + SMALLER_INVOICE_DATE);
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByInvoiceDateIsLessThanSomething() throws Exception {
+    public void getAllInvoicesByInvoice_dateIsLessThanSomething() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where invoiceDate is less than DEFAULT_INVOICE_DATE
-        defaultInvoiceShouldNotBeFound("invoiceDate.lessThan=" + DEFAULT_INVOICE_DATE);
+        // Get all the invoiceList where invoice_date is less than DEFAULT_INVOICE_DATE
+        defaultInvoiceShouldNotBeFound("invoice_date.lessThan=" + DEFAULT_INVOICE_DATE);
 
-        // Get all the invoiceList where invoiceDate is less than UPDATED_INVOICE_DATE
-        defaultInvoiceShouldBeFound("invoiceDate.lessThan=" + UPDATED_INVOICE_DATE);
+        // Get all the invoiceList where invoice_date is less than UPDATED_INVOICE_DATE
+        defaultInvoiceShouldBeFound("invoice_date.lessThan=" + UPDATED_INVOICE_DATE);
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByInvoiceDateIsGreaterThanSomething() throws Exception {
+    public void getAllInvoicesByInvoice_dateIsGreaterThanSomething() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where invoiceDate is greater than DEFAULT_INVOICE_DATE
-        defaultInvoiceShouldNotBeFound("invoiceDate.greaterThan=" + DEFAULT_INVOICE_DATE);
+        // Get all the invoiceList where invoice_date is greater than DEFAULT_INVOICE_DATE
+        defaultInvoiceShouldNotBeFound("invoice_date.greaterThan=" + DEFAULT_INVOICE_DATE);
 
-        // Get all the invoiceList where invoiceDate is greater than SMALLER_INVOICE_DATE
-        defaultInvoiceShouldBeFound("invoiceDate.greaterThan=" + SMALLER_INVOICE_DATE);
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllInvoicesByDueDateIsEqualToSomething() throws Exception {
-        // Initialize the database
-        invoiceRepository.saveAndFlush(invoice);
-
-        // Get all the invoiceList where dueDate equals to DEFAULT_DUE_DATE
-        defaultInvoiceShouldBeFound("dueDate.equals=" + DEFAULT_DUE_DATE);
-
-        // Get all the invoiceList where dueDate equals to UPDATED_DUE_DATE
-        defaultInvoiceShouldNotBeFound("dueDate.equals=" + UPDATED_DUE_DATE);
-    }
-
-    @Test
-    @Transactional
-    public void getAllInvoicesByDueDateIsInShouldWork() throws Exception {
-        // Initialize the database
-        invoiceRepository.saveAndFlush(invoice);
-
-        // Get all the invoiceList where dueDate in DEFAULT_DUE_DATE or UPDATED_DUE_DATE
-        defaultInvoiceShouldBeFound("dueDate.in=" + DEFAULT_DUE_DATE + "," + UPDATED_DUE_DATE);
-
-        // Get all the invoiceList where dueDate equals to UPDATED_DUE_DATE
-        defaultInvoiceShouldNotBeFound("dueDate.in=" + UPDATED_DUE_DATE);
-    }
-
-    @Test
-    @Transactional
-    public void getAllInvoicesByDueDateIsNullOrNotNull() throws Exception {
-        // Initialize the database
-        invoiceRepository.saveAndFlush(invoice);
-
-        // Get all the invoiceList where dueDate is not null
-        defaultInvoiceShouldBeFound("dueDate.specified=true");
-
-        // Get all the invoiceList where dueDate is null
-        defaultInvoiceShouldNotBeFound("dueDate.specified=false");
-    }
-
-    @Test
-    @Transactional
-    public void getAllInvoicesByDueDateIsGreaterThanOrEqualToSomething() throws Exception {
-        // Initialize the database
-        invoiceRepository.saveAndFlush(invoice);
-
-        // Get all the invoiceList where dueDate is greater than or equal to DEFAULT_DUE_DATE
-        defaultInvoiceShouldBeFound("dueDate.greaterThanOrEqual=" + DEFAULT_DUE_DATE);
-
-        // Get all the invoiceList where dueDate is greater than or equal to UPDATED_DUE_DATE
-        defaultInvoiceShouldNotBeFound("dueDate.greaterThanOrEqual=" + UPDATED_DUE_DATE);
-    }
-
-    @Test
-    @Transactional
-    public void getAllInvoicesByDueDateIsLessThanOrEqualToSomething() throws Exception {
-        // Initialize the database
-        invoiceRepository.saveAndFlush(invoice);
-
-        // Get all the invoiceList where dueDate is less than or equal to DEFAULT_DUE_DATE
-        defaultInvoiceShouldBeFound("dueDate.lessThanOrEqual=" + DEFAULT_DUE_DATE);
-
-        // Get all the invoiceList where dueDate is less than or equal to SMALLER_DUE_DATE
-        defaultInvoiceShouldNotBeFound("dueDate.lessThanOrEqual=" + SMALLER_DUE_DATE);
-    }
-
-    @Test
-    @Transactional
-    public void getAllInvoicesByDueDateIsLessThanSomething() throws Exception {
-        // Initialize the database
-        invoiceRepository.saveAndFlush(invoice);
-
-        // Get all the invoiceList where dueDate is less than DEFAULT_DUE_DATE
-        defaultInvoiceShouldNotBeFound("dueDate.lessThan=" + DEFAULT_DUE_DATE);
-
-        // Get all the invoiceList where dueDate is less than UPDATED_DUE_DATE
-        defaultInvoiceShouldBeFound("dueDate.lessThan=" + UPDATED_DUE_DATE);
-    }
-
-    @Test
-    @Transactional
-    public void getAllInvoicesByDueDateIsGreaterThanSomething() throws Exception {
-        // Initialize the database
-        invoiceRepository.saveAndFlush(invoice);
-
-        // Get all the invoiceList where dueDate is greater than DEFAULT_DUE_DATE
-        defaultInvoiceShouldNotBeFound("dueDate.greaterThan=" + DEFAULT_DUE_DATE);
-
-        // Get all the invoiceList where dueDate is greater than SMALLER_DUE_DATE
-        defaultInvoiceShouldBeFound("dueDate.greaterThan=" + SMALLER_DUE_DATE);
+        // Get all the invoiceList where invoice_date is greater than SMALLER_INVOICE_DATE
+        defaultInvoiceShouldBeFound("invoice_date.greaterThan=" + SMALLER_INVOICE_DATE);
     }
 
 
     @Test
     @Transactional
-    public void getAllInvoicesByVendorNameIsEqualToSomething() throws Exception {
+    public void getAllInvoicesByDue_dateIsEqualToSomething() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where vendorName equals to DEFAULT_VENDOR_NAME
-        defaultInvoiceShouldBeFound("vendorName.equals=" + DEFAULT_VENDOR_NAME);
+        // Get all the invoiceList where due_date equals to DEFAULT_DUE_DATE
+        defaultInvoiceShouldBeFound("due_date.equals=" + DEFAULT_DUE_DATE);
 
-        // Get all the invoiceList where vendorName equals to UPDATED_VENDOR_NAME
-        defaultInvoiceShouldNotBeFound("vendorName.equals=" + UPDATED_VENDOR_NAME);
+        // Get all the invoiceList where due_date equals to UPDATED_DUE_DATE
+        defaultInvoiceShouldNotBeFound("due_date.equals=" + UPDATED_DUE_DATE);
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByVendorNameIsInShouldWork() throws Exception {
+    public void getAllInvoicesByDue_dateIsInShouldWork() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where vendorName in DEFAULT_VENDOR_NAME or UPDATED_VENDOR_NAME
-        defaultInvoiceShouldBeFound("vendorName.in=" + DEFAULT_VENDOR_NAME + "," + UPDATED_VENDOR_NAME);
+        // Get all the invoiceList where due_date in DEFAULT_DUE_DATE or UPDATED_DUE_DATE
+        defaultInvoiceShouldBeFound("due_date.in=" + DEFAULT_DUE_DATE + "," + UPDATED_DUE_DATE);
 
-        // Get all the invoiceList where vendorName equals to UPDATED_VENDOR_NAME
-        defaultInvoiceShouldNotBeFound("vendorName.in=" + UPDATED_VENDOR_NAME);
+        // Get all the invoiceList where due_date equals to UPDATED_DUE_DATE
+        defaultInvoiceShouldNotBeFound("due_date.in=" + UPDATED_DUE_DATE);
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByVendorNameIsNullOrNotNull() throws Exception {
+    public void getAllInvoicesByDue_dateIsNullOrNotNull() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where vendorName is not null
-        defaultInvoiceShouldBeFound("vendorName.specified=true");
+        // Get all the invoiceList where due_date is not null
+        defaultInvoiceShouldBeFound("due_date.specified=true");
 
-        // Get all the invoiceList where vendorName is null
-        defaultInvoiceShouldNotBeFound("vendorName.specified=false");
+        // Get all the invoiceList where due_date is null
+        defaultInvoiceShouldNotBeFound("due_date.specified=false");
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByRemittanceAddressIsEqualToSomething() throws Exception {
+    public void getAllInvoicesByDue_dateIsGreaterThanOrEqualToSomething() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where remittanceAddress equals to DEFAULT_REMITTANCE_ADDRESS
-        defaultInvoiceShouldBeFound("remittanceAddress.equals=" + DEFAULT_REMITTANCE_ADDRESS);
+        // Get all the invoiceList where due_date is greater than or equal to DEFAULT_DUE_DATE
+        defaultInvoiceShouldBeFound("due_date.greaterThanOrEqual=" + DEFAULT_DUE_DATE);
 
-        // Get all the invoiceList where remittanceAddress equals to UPDATED_REMITTANCE_ADDRESS
-        defaultInvoiceShouldNotBeFound("remittanceAddress.equals=" + UPDATED_REMITTANCE_ADDRESS);
+        // Get all the invoiceList where due_date is greater than or equal to UPDATED_DUE_DATE
+        defaultInvoiceShouldNotBeFound("due_date.greaterThanOrEqual=" + UPDATED_DUE_DATE);
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByRemittanceAddressIsInShouldWork() throws Exception {
+    public void getAllInvoicesByDue_dateIsLessThanOrEqualToSomething() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where remittanceAddress in DEFAULT_REMITTANCE_ADDRESS or UPDATED_REMITTANCE_ADDRESS
-        defaultInvoiceShouldBeFound("remittanceAddress.in=" + DEFAULT_REMITTANCE_ADDRESS + "," + UPDATED_REMITTANCE_ADDRESS);
+        // Get all the invoiceList where due_date is less than or equal to DEFAULT_DUE_DATE
+        defaultInvoiceShouldBeFound("due_date.lessThanOrEqual=" + DEFAULT_DUE_DATE);
 
-        // Get all the invoiceList where remittanceAddress equals to UPDATED_REMITTANCE_ADDRESS
-        defaultInvoiceShouldNotBeFound("remittanceAddress.in=" + UPDATED_REMITTANCE_ADDRESS);
+        // Get all the invoiceList where due_date is less than or equal to SMALLER_DUE_DATE
+        defaultInvoiceShouldNotBeFound("due_date.lessThanOrEqual=" + SMALLER_DUE_DATE);
     }
 
     @Test
     @Transactional
-    public void getAllInvoicesByRemittanceAddressIsNullOrNotNull() throws Exception {
+    public void getAllInvoicesByDue_dateIsLessThanSomething() throws Exception {
         // Initialize the database
         invoiceRepository.saveAndFlush(invoice);
 
-        // Get all the invoiceList where remittanceAddress is not null
-        defaultInvoiceShouldBeFound("remittanceAddress.specified=true");
+        // Get all the invoiceList where due_date is less than DEFAULT_DUE_DATE
+        defaultInvoiceShouldNotBeFound("due_date.lessThan=" + DEFAULT_DUE_DATE);
 
-        // Get all the invoiceList where remittanceAddress is null
-        defaultInvoiceShouldNotBeFound("remittanceAddress.specified=false");
+        // Get all the invoiceList where due_date is less than UPDATED_DUE_DATE
+        defaultInvoiceShouldBeFound("due_date.lessThan=" + UPDATED_DUE_DATE);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInvoicesByDue_dateIsGreaterThanSomething() throws Exception {
+        // Initialize the database
+        invoiceRepository.saveAndFlush(invoice);
+
+        // Get all the invoiceList where due_date is greater than DEFAULT_DUE_DATE
+        defaultInvoiceShouldNotBeFound("due_date.greaterThan=" + DEFAULT_DUE_DATE);
+
+        // Get all the invoiceList where due_date is greater than SMALLER_DUE_DATE
+        defaultInvoiceShouldBeFound("due_date.greaterThan=" + SMALLER_DUE_DATE);
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllInvoicesByVendor_nameIsEqualToSomething() throws Exception {
+        // Initialize the database
+        invoiceRepository.saveAndFlush(invoice);
+
+        // Get all the invoiceList where vendor_name equals to DEFAULT_VENDOR_NAME
+        defaultInvoiceShouldBeFound("vendor_name.equals=" + DEFAULT_VENDOR_NAME);
+
+        // Get all the invoiceList where vendor_name equals to UPDATED_VENDOR_NAME
+        defaultInvoiceShouldNotBeFound("vendor_name.equals=" + UPDATED_VENDOR_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInvoicesByVendor_nameIsInShouldWork() throws Exception {
+        // Initialize the database
+        invoiceRepository.saveAndFlush(invoice);
+
+        // Get all the invoiceList where vendor_name in DEFAULT_VENDOR_NAME or UPDATED_VENDOR_NAME
+        defaultInvoiceShouldBeFound("vendor_name.in=" + DEFAULT_VENDOR_NAME + "," + UPDATED_VENDOR_NAME);
+
+        // Get all the invoiceList where vendor_name equals to UPDATED_VENDOR_NAME
+        defaultInvoiceShouldNotBeFound("vendor_name.in=" + UPDATED_VENDOR_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInvoicesByVendor_nameIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        invoiceRepository.saveAndFlush(invoice);
+
+        // Get all the invoiceList where vendor_name is not null
+        defaultInvoiceShouldBeFound("vendor_name.specified=true");
+
+        // Get all the invoiceList where vendor_name is null
+        defaultInvoiceShouldNotBeFound("vendor_name.specified=false");
+    }
+
+    @Test
+    @Transactional
+    public void getAllInvoicesByRemittance_addressIsEqualToSomething() throws Exception {
+        // Initialize the database
+        invoiceRepository.saveAndFlush(invoice);
+
+        // Get all the invoiceList where remittance_address equals to DEFAULT_REMITTANCE_ADDRESS
+        defaultInvoiceShouldBeFound("remittance_address.equals=" + DEFAULT_REMITTANCE_ADDRESS);
+
+        // Get all the invoiceList where remittance_address equals to UPDATED_REMITTANCE_ADDRESS
+        defaultInvoiceShouldNotBeFound("remittance_address.equals=" + UPDATED_REMITTANCE_ADDRESS);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInvoicesByRemittance_addressIsInShouldWork() throws Exception {
+        // Initialize the database
+        invoiceRepository.saveAndFlush(invoice);
+
+        // Get all the invoiceList where remittance_address in DEFAULT_REMITTANCE_ADDRESS or UPDATED_REMITTANCE_ADDRESS
+        defaultInvoiceShouldBeFound("remittance_address.in=" + DEFAULT_REMITTANCE_ADDRESS + "," + UPDATED_REMITTANCE_ADDRESS);
+
+        // Get all the invoiceList where remittance_address equals to UPDATED_REMITTANCE_ADDRESS
+        defaultInvoiceShouldNotBeFound("remittance_address.in=" + UPDATED_REMITTANCE_ADDRESS);
+    }
+
+    @Test
+    @Transactional
+    public void getAllInvoicesByRemittance_addressIsNullOrNotNull() throws Exception {
+        // Initialize the database
+        invoiceRepository.saveAndFlush(invoice);
+
+        // Get all the invoiceList where remittance_address is not null
+        defaultInvoiceShouldBeFound("remittance_address.specified=true");
+
+        // Get all the invoiceList where remittance_address is null
+        defaultInvoiceShouldNotBeFound("remittance_address.specified=false");
     }
 
     @Test
@@ -798,13 +798,13 @@ public class InvoiceResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invoice.getId().intValue())))
-            .andExpect(jsonPath("$.[*].invoiceNumber").value(hasItem(DEFAULT_INVOICE_NUMBER)))
+            .andExpect(jsonPath("$.[*].invoice_number").value(hasItem(DEFAULT_INVOICE_NUMBER)))
             .andExpect(jsonPath("$.[*].total").value(hasItem(DEFAULT_TOTAL.intValue())))
             .andExpect(jsonPath("$.[*].currency").value(hasItem(DEFAULT_CURRENCY.toString())))
-            .andExpect(jsonPath("$.[*].invoiceDate").value(hasItem(DEFAULT_INVOICE_DATE.toString())))
-            .andExpect(jsonPath("$.[*].dueDate").value(hasItem(DEFAULT_DUE_DATE.toString())))
-            .andExpect(jsonPath("$.[*].vendorName").value(hasItem(DEFAULT_VENDOR_NAME)))
-            .andExpect(jsonPath("$.[*].remittanceAddress").value(hasItem(DEFAULT_REMITTANCE_ADDRESS)))
+            .andExpect(jsonPath("$.[*].invoice_date").value(hasItem(DEFAULT_INVOICE_DATE.toString())))
+            .andExpect(jsonPath("$.[*].due_date").value(hasItem(DEFAULT_DUE_DATE.toString())))
+            .andExpect(jsonPath("$.[*].vendor_name").value(hasItem(DEFAULT_VENDOR_NAME)))
+            .andExpect(jsonPath("$.[*].remittance_address").value(hasItem(DEFAULT_REMITTANCE_ADDRESS)))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
 
         // Check, that the count call also returns 1
@@ -853,13 +853,13 @@ public class InvoiceResourceIT {
         // Disconnect from session so that the updates on updatedInvoice are not directly saved in db
         em.detach(updatedInvoice);
         updatedInvoice
-            .invoiceNumber(UPDATED_INVOICE_NUMBER)
+            .invoice_number(UPDATED_INVOICE_NUMBER)
             .total(UPDATED_TOTAL)
             .currency(UPDATED_CURRENCY)
-            .invoiceDate(UPDATED_INVOICE_DATE)
-            .dueDate(UPDATED_DUE_DATE)
-            .vendorName(UPDATED_VENDOR_NAME)
-            .remittanceAddress(UPDATED_REMITTANCE_ADDRESS)
+            .invoice_date(UPDATED_INVOICE_DATE)
+            .due_date(UPDATED_DUE_DATE)
+            .vendor_name(UPDATED_VENDOR_NAME)
+            .remittance_address(UPDATED_REMITTANCE_ADDRESS)
             .status(UPDATED_STATUS);
         InvoiceDTO invoiceDTO = invoiceMapper.toDto(updatedInvoice);
 
@@ -872,13 +872,13 @@ public class InvoiceResourceIT {
         List<Invoice> invoiceList = invoiceRepository.findAll();
         assertThat(invoiceList).hasSize(databaseSizeBeforeUpdate);
         Invoice testInvoice = invoiceList.get(invoiceList.size() - 1);
-        assertThat(testInvoice.getInvoiceNumber()).isEqualTo(UPDATED_INVOICE_NUMBER);
+        assertThat(testInvoice.getInvoice_number()).isEqualTo(UPDATED_INVOICE_NUMBER);
         assertThat(testInvoice.getTotal()).isEqualTo(UPDATED_TOTAL);
         assertThat(testInvoice.getCurrency()).isEqualTo(UPDATED_CURRENCY);
-        assertThat(testInvoice.getInvoiceDate()).isEqualTo(UPDATED_INVOICE_DATE);
-        assertThat(testInvoice.getDueDate()).isEqualTo(UPDATED_DUE_DATE);
-        assertThat(testInvoice.getVendorName()).isEqualTo(UPDATED_VENDOR_NAME);
-        assertThat(testInvoice.getRemittanceAddress()).isEqualTo(UPDATED_REMITTANCE_ADDRESS);
+        assertThat(testInvoice.getInvoice_date()).isEqualTo(UPDATED_INVOICE_DATE);
+        assertThat(testInvoice.getDue_date()).isEqualTo(UPDATED_DUE_DATE);
+        assertThat(testInvoice.getVendor_name()).isEqualTo(UPDATED_VENDOR_NAME);
+        assertThat(testInvoice.getRemittance_address()).isEqualTo(UPDATED_REMITTANCE_ADDRESS);
         assertThat(testInvoice.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 
