@@ -1,0 +1,11 @@
+version: '2'
+services:
+  2uassessment-postgresql:
+    image: postgres:11.5
+    # volumes:
+    #     - ~/volumes/jhipster/2uAssessment/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=2uAssessment
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
