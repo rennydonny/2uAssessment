@@ -102,7 +102,7 @@ const apiUrl = 'api/invoices';
 // Actions
 
 export const getEntities: ICrudGetAllAction<IInvoice> = (page, size, sort) => {
-  const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}&status.equals=PENDING`;
   return {
     type: ACTION_TYPES.FETCH_INVOICE_LIST,
     payload: axios.get<IInvoice>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`)
