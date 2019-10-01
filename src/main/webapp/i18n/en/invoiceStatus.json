@@ -1,0 +1,9 @@
+{
+  "App": {
+    "InvoiceStatus": {
+      "null": "",
+      "PENDING": "PENDING",
+      "APPROVED": "APPROVED"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "App": {
+    "invoice": {
+      "home": {
+        "title": "Invoices",
+        "createLabel": "Crear nuevo Invoice",
+        "createOrEditLabel": "Crear o editar Invoice",
+        "notFound": "No Invoices found"
+      },
+      "created": "Un nuevo Invoice ha sido creado con el identificador {{ param }}",
+      "updated": "Un Invoice ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Invoice ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Invoice {{ id }}?"
+      },
+      "detail": {
+        "title": "Invoice"
+      },
+      "invoiceNumber": "Invoice Number",
+      "total": "Total",
+      "currency": "Currency",
+      "invoiceDate": "Invoice Date",
+      "dueDate": "Due Date",
+      "vendorName": "Vendor Name",
+      "remittanceAddress": "Remittance Address",
+      "status": "Status"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "invoiceNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique",
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^[0-9]+$"
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "Currency",
+            "fieldValues": "USD",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "invoiceDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dueDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "vendorName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remittanceAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "InvoiceStatus",
+            "fieldValues": "PENDING,APPROVED"
+        }
+    ],
+    "changelogDate": "20191001050331",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "invoice",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}
