@@ -47,19 +47,19 @@ As a member of the 2ULaundry Accounting Team I need to see a list of invoices th
 
 ### Acceptance criteria
 
-## TODO:
+### TODO:
 
 1. [x] Create an interface with react.js that shows a list of unapproved invoices that are submitted via API described in user story #1.
 2. [x] Display the following fields for each invoice:"Invoice Number", "Vendor Name", "Vendor Address", "Invoice Total", "Invoice Date", "Due Date"
-3. [ ] Create a solution that allows the user to select and approve invoices. Once an invoice is "Approved" it should dissappear from the list of available invoices.
-4. [ ] When the user approves an invoice the "status" property for that invoice should be updated to "Approved"
+3. [x] Create a solution that allows the user to select and approve invoices. Once an invoice is "Approved" it should dissappear from the list of available invoices.
+4. [x] When the user approves an invoice the "status" property for that invoice should be updated to "Approved"
 5. [ ] When an invoice is submitted via the API from user story #1, it should populate in the list of displayed invoices without requiring the user to manually refresh the list of invoices.
 
 [x] is Done
 
-### Demo :
-
 ### To run after you downloaded the source:
 
-npm install
-./mvnw
+`$ npm install`
+`$ ./mvnw`
+
+### Demo :
