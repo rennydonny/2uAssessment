@@ -33,7 +33,7 @@ public class InvoiceDTO implements Serializable {
 
     private String remittance_address;
 
-    private InvoiceStatus status;
+    private InvoiceStatus status = InvoiceStatus.PENDING;
 
 
     public Long getId() {
