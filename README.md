@@ -12,8 +12,8 @@ As a vendor supplying services to 2ULaundry I need to submit invoices via an API
 
 ### Acceptance criteria
 
-1.[DONE] The API accepts JSON formatted HTTP POST requests at the route '/Invoice'
-The following is a sample Invoice request that will be submitted to the API endpoint.
+1. [x] The API accepts JSON formatted HTTP POST requests at the route '/Invoice'
+       The following is a sample Invoice request that will be submitted to the API endpoint.
 
 ```javascript
 Basic Authorization: user = admin , password = admin
@@ -29,7 +29,7 @@ POST : /api/invoice
 }
 ```
 
-2.[DONE] The API returns an HTTP 200 Response code and the following message body
+2. [x] The API returns an HTTP 200 Response code and the following message body
 
 ```javascript
 {
@@ -37,7 +37,9 @@ POST : /api/invoice
 }
 ```
 
-3.[DONE] Store the invoices in a data store of your choice with an additional property and value "status": "pending"
+3. [x] Store the invoices in a data store of your choice with an additional property and value "status": "pending"
+
+[x] is Done
 
 ## User story 2
 
@@ -45,9 +47,15 @@ As a member of the 2ULaundry Accounting Team I need to see a list of invoices th
 
 ### Acceptance criteria
 
-1.[DONE] Create an interface with react.js that shows a list of unapproved invoices that are submitted via API described in user story #1. 2.[DONE] Display the following fields for each invoice:"Invoice Number", "Vendor Name", "Vendor Address", "Invoice Total", "Invoice Date", "Due Date" 3.[PENDING] Create a solution that allows the user to select and approve invoices. Once an invoice is "Approved" it should dissappear from the list of available invoices. 4.[PENDING] When the user approves an invoice the "status" property for that invoice should be updated to "Approved" 5.[PENDING] When an invoice is submitted via the API from user story #1, it should populate in the list of displayed invoices without requiring the user to manually refresh the list of invoices.
+1. [x] Create an interface with react.js that shows a list of unapproved invoices that are submitted via API described in user story #1.
+2. [x] Display the following fields for each invoice:"Invoice Number", "Vendor Name", "Vendor Address", "Invoice Total", "Invoice Date", "Due Date"
+3. [] Create a solution that allows the user to select and approve invoices. Once an invoice is "Approved" it should dissappear from the list of available invoices.
+4. [] When the user approves an invoice the "status" property for that invoice should be updated to "Approved"
+5. [] When an invoice is submitted via the API from user story #1, it should populate in the list of displayed invoices without requiring the user to manually refresh the list of invoices.
 
-[PENDING] Demo :
+[x] is Done
+
+### Demo :
 
 ### To run after you downloaded the source:
 
