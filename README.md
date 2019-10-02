@@ -16,8 +16,6 @@ As a vendor supplying services to 2ULaundry I need to submit invoices via an API
        The following is a sample Invoice request that will be submitted to the API endpoint.
 
 ```javascript
-Basic Authorization: user = admin , password = admin
-POST : /api/invoice
 {
   "invoice_number": "12345",
   "total": "199.99",
@@ -56,10 +54,23 @@ As a member of the 2ULaundry Accounting Team I need to see a list of invoices th
 5. [ ] When an invoice is submitted via the API from user story #1, it should populate in the list of displayed invoices without requiring the user to manually refresh the list of invoices.
 
 [x] is Done
+About last one criteria of user story 2, my approach to solve it could be by socket in order to keep live thread and show the newly arrived invoices
 
-### To run after you downloaded the source:
+### Solution
 
+** Demo web site **
+
+> [http://6a48d1ca.ngrok.io](http://6a48d1ca.ngrok.io)
+> Menu / Sign in
+> Username : admin
+> Password : admin
+> Entities / \* Invoice
+
+** API **
+`javascript Basic Authorization: user = admin , password = admin POST : http://6a48d1ca.ngrok.io/api/invoice { "invoice_number": "12345", "total": "199.99", "currency": "USD", "invoice_date": "2019-08-17", "due_date": "2019-09-17", "vendor_name": "Acme Cleaners Inc.", "remittance_address": "123 ABC St. Charlotte, NC 28209" }`
+
+** Download and execute the source code **
+`$ git clone https://github.com/rennydonny/2uAssessment.git`
+`$ cd ./2uAssessment`
 `$ npm install`
 `$ ./mvnw`
-
-### Demo :
