@@ -54,11 +54,12 @@ As a member of the 2ULaundry Accounting Team I need to see a list of invoices th
 5. [ ] When an invoice is submitted via the API from user story #1, it should populate in the list of displayed invoices without requiring the user to manually refresh the list of invoices.
 
 [x] is Done
-About last one criteria of user story 2, my approach to solve it could be by socket in order to keep live thread and show the newly arrived invoices
+
+- **Note:** About last one criteria of user story 2, my approach to solve it could be by socket in order to keep a live thread to allows the newly arrived invoice shows in the list.
 
 ### Solution
 
-** Demo web site **
+**Demo web site**
 
 - [http://6a48d1ca.ngrok.io](http://6a48d1ca.ngrok.io)
 - Menu / Sign in
@@ -66,7 +67,7 @@ About last one criteria of user story 2, my approach to solve it could be by soc
 - Password : admin
 - Entities / \* Invoice
 
-** API **
+**API**
 
 ```javascript
 POST http://6a48d1ca.ngrok.io/api/invoice
@@ -82,7 +83,7 @@ Basic Authorization : user = admin , password = admin
 }
 ```
 
-** Download and execute the source code **
+**Download and execute the source code**
 
 - `$ git clone https://github.com/rennydonny/2uAssessment.git`
 - `$ cd ./2uAssessment`
