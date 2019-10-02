@@ -60,11 +60,11 @@ About last one criteria of user story 2, my approach to solve it could be by soc
 
 ** Demo web site **
 
-> [http://6a48d1ca.ngrok.io](http://6a48d1ca.ngrok.io)
-> Menu / Sign in
-> Username : admin
-> Password : admin
-> Entities / \* Invoice
+- [http://6a48d1ca.ngrok.io](http://6a48d1ca.ngrok.io)
+- Menu / Sign in
+- Username : admin
+- Password : admin
+- Entities / \* Invoice
 
 ** API **
 
@@ -83,7 +83,8 @@ Basic Authorization : user = admin , password = admin
 ```
 
 ** Download and execute the source code **
-`$ git clone https://github.com/rennydonny/2uAssessment.git`
-`$ cd ./2uAssessment`
-`$ npm install`
-`$ ./mvnw`
+
+- `$ git clone https://github.com/rennydonny/2uAssessment.git`
+- `$ cd ./2uAssessment`
+- `$ npm install`
+- `$ ./mvnw`
