@@ -67,7 +67,20 @@ About last one criteria of user story 2, my approach to solve it could be by soc
 > Entities / \* Invoice
 
 ** API **
-`javascript Basic Authorization: user = admin , password = admin POST : http://6a48d1ca.ngrok.io/api/invoice { "invoice_number": "12345", "total": "199.99", "currency": "USD", "invoice_date": "2019-08-17", "due_date": "2019-09-17", "vendor_name": "Acme Cleaners Inc.", "remittance_address": "123 ABC St. Charlotte, NC 28209" }`
+
+```javascript
+POST http://6a48d1ca.ngrok.io/api/invoice
+Basic Authorization : user = admin , password = admin
+{
+  "invoice_number": "12345",
+  "total": "199.99",
+  "currency": "USD",
+  "invoice_date": "2019-08-17",
+  "due_date": "2019-09-17",
+  "vendor_name": "Acme Cleaners Inc.",
+  "remittance_address": "123 ABC St. Charlotte, NC 28209"
+}
+```
 
 ** Download and execute the source code **
 `$ git clone https://github.com/rennydonny/2uAssessment.git`
